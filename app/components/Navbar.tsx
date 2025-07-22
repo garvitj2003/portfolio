@@ -93,12 +93,9 @@ const Navbar = () => {
           </motion.div>
 
           {/* Contact Me Button - always visible */}
-          <div className="flex items-center gap-2 flex-shrink-0">
             <motion.a
               href="#contact"
-              className={`bg-[#1f1f1f] text-white text-sm rounded-lg hover:bg-[#2a2a2a] transition-all duration-200 font-semibold whitespace-nowrap ${
-                scrolled ? "px-4 py-1.5" : "px-6 py-2"
-              }`}
+              className="bg-[#1f1f1f] text-white  rounded-lg px-4 py-1.5 text-sm hover:bg-[#2a2a2a] "
               whileHover={{
                 scale: 1.05,
                 boxShadow: "0 0 20px rgba(255, 255, 255, 0.1)",
@@ -107,7 +104,7 @@ const Navbar = () => {
             >
               Contact me
             </motion.a>
-          </div>
+          
         </div>
       </div>
     </motion.div>
