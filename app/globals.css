@@ -123,9 +123,11 @@
     @apply bg-background text-foreground;
   }
 }
-html, body {
+html,
+body {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE 10+ */
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {

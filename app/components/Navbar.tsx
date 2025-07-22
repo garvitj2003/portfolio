@@ -43,12 +43,12 @@ const Navbar = () => {
     <motion.div
       initial={false}
       animate={{
-        width: isLg ? (scrolled ? "50%" : "80%") : scrolled ? "80%" : "100%",
+        width: isLg ? (scrolled ? "50%" : "80%") : scrolled ? "90%" : "100%",
       }}
       transition={{ duration: 0.8, ease: [0.65, 0, 0.35, 1] }}
       className={`fixed ${
         scrolled ? "top-2" : "top-0"
-      } left-1/2 transform -translate-x-1/2 z-50 ${
+      } left-1/2 transform -translate-x-1/2 z-50 max-w-full ${
         scrolled
           ? "bg-[#121212] shadow-md rounded-xl px-6"
           : "px-4 sm:px-6 lg:px-8"
@@ -93,18 +93,17 @@ const Navbar = () => {
           </motion.div>
 
           {/* Contact Me Button - always visible */}
-            <motion.a
-              href="#contact"
-              className="bg-[#1f1f1f] text-white  rounded-lg px-4 py-1.5 text-sm hover:bg-[#2a2a2a] "
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 0 20px rgba(255, 255, 255, 0.1)",
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Contact me
-            </motion.a>
-          
+          <motion.a
+            href="#contact"
+            className="bg-[#1f1f1f] text-white  rounded-lg px-4 py-1.5 text-sm hover:bg-[#2a2a2a] "
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0 0 20px rgba(255, 255, 255, 0.1)",
+            }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Contact me
+          </motion.a>
         </div>
       </div>
     </motion.div>

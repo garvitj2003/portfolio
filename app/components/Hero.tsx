@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center pt-16">
+    <section className="min-h-screen flex items-center pt-16 overflow-x-hidden">
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Content */}
@@ -108,7 +108,7 @@ const Hero = () => {
             {/* Artistic Woman Illustration */}
             <div className="relative w-full max-w-lg h-[500px] flex items-center justify-center">
               {/* Profile Image Container with Grid */}
-              <div className="relative w-[400px] h-[500px]">
+              <div className="relative w-full max-w-[400px] h-[400px] sm:h-[500px]">
                 {/* Grid Background - positioned to match image exactly */}
                 <div className="absolute inset-0 opacity-10">
                   <div className="grid grid-cols-12 grid-rows-12 h-full w-full">
@@ -142,7 +142,7 @@ const Hero = () => {
 
                 {/* Floating Geometric Elements */}
                 <motion.div
-                  className="absolute top-26 right-20 w-8 h-8 rounded bg-amber-400 opacity-80 z-5"
+                  className="absolute top-26 right-20 w-8 h-8 rounded bg-amber-400 opacity-80 z-5 hidden sm:block"
                   animate={{
                     y: [0, -15, 0],
                     rotate: [0, 45, 90, 45, 0],
@@ -154,7 +154,7 @@ const Hero = () => {
                   }}
                 />
                 <motion.div
-                  className="absolute rounded-lg bottom-20 left-16 w-6 h-6 bg-red-400 opacity-80 z-5"
+                  className="absolute rounded-lg bottom-20 left-16 w-6 h-6 bg-red-400 opacity-80 z-5 hidden sm:block"
                   animate={{
                     y: [0, 20, 0],
                     rotate: [0, -45, 0],
@@ -167,7 +167,7 @@ const Hero = () => {
                   }}
                 />
                 <motion.div
-                  className="absolute rounded-full top-32 left-20 w-4 h-4 bg-purple-600 opacity-30 z-30"
+                  className="absolute rounded-full top-32 left-20 w-4 h-4 bg-purple-600 opacity-30 z-30 hidden sm:block"
                   animate={{
                     x: [0, 15, 0],
                     rotate: [0, 90, 0],

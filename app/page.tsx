@@ -6,9 +6,9 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <div id="top" className="min-h-screen">
+    <div id="top" className="min-h-screen overflow-x-hidden">
       {/* Main Content Wrapper with responsive width */}
-      <div className="w-[90%] lg:w-[80%] mx-auto">
+      <div className="w-[90%] lg:w-[80%] mx-auto ">
         {/* Fixed Navigation */}
         <Navbar />
 
