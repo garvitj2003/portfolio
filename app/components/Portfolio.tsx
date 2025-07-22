@@ -81,7 +81,7 @@ const Portfolio = () => {
 
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full">
         {/* Section Header */}
         <motion.div
           className="text-center mb-16"
@@ -120,8 +120,6 @@ const Portfolio = () => {
             >
               {/* Project Thumbnail */}
               <div className="h-48 relative overflow-hidden">
-                
-
                 {/* Dark overlay */}
                 <div className="absolute inset-0 bg-black bg-opacity-20" />
 

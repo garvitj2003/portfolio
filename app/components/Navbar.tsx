@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-// Custom hook to detect large screens (>1080px)
 const useMediaQuery = (query: string) => {
   const [matches, setMatches] = useState(false);
 
@@ -52,11 +51,11 @@ const Navbar = () => {
       } left-1/2 transform -translate-x-1/2 z-50 ${
         scrolled
           ? "bg-[#121212] shadow-md rounded-xl px-6"
-          : "bg-transparent backdrop-blur-sm px-4 sm:px-6 lg:px-8"
+          : "px-4 sm:px-6 lg:px-8"
       }`}
       layout
     >
-      <div className={`${scrolled ? "" : "max-w-7xl mx-auto"}`}>
+      <div className="w-full">
         <div className="flex items-center justify-between h-16">
           {/* Logo and Name */}
           <div className="flex items-center space-x-3">

@@ -7,23 +7,25 @@ import Footer from "./components/Footer";
 export default function Home() {
   return (
     <div id="top" className="min-h-screen">
-      {/* Fixed Navigation */}
-      <Navbar />
+      {/* Main Content Wrapper with responsive width */}
+      <div className="w-[90%] lg:w-[80%] mx-auto">
+        {/* Fixed Navigation */}
+        <Navbar />
 
-      {/* Main Content */}
-      <main>
-        {/* Hero Section */}
-        <Hero />
+        <main>
+          {/* Hero Section */}
+          <Hero />
 
-        {/* Portfolio Section */}
-        <Portfolio />
+          {/* Portfolio Section */}
+          <Portfolio />
 
-        {/* Contact Section */}
-        <Contact />
-      </main>
+          {/* Contact Section */}
+          <Contact />
+        </main>
 
-      {/* Footer */}
-      <Footer />
+        {/* Footer */}
+        <Footer />
+      </div>
     </div>
   );
 }
