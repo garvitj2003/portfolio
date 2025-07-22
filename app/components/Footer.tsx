@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Twitter, Heart } from "lucide-react";
 import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Miltonian } from "next/font/google";
 
 const Footer = () => {
   const navLinks = [
@@ -126,7 +127,7 @@ const Footer = () => {
 
         {/* Divider */}
         <div className="border-t border-[#1a1a1a] pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0">
             {/* Copyright */}
             <motion.div
               className="flex items-center space-x-2 text-[#888888] text-sm"
@@ -147,17 +148,7 @@ const Footer = () => {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-            >
-              {bottomLinks.map((link, index) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-[#888888] hover:text-white transition-colors duration-200 text-sm"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </motion.div>
+            ></motion.div>
           </div>
         </div>
 

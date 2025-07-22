@@ -26,25 +26,39 @@ const Hero = () => {
 
             {/* Main Title */}
             <motion.h1
-              className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 font-figtree leading-tight"
+              className="lg:text-4xl text-3xl font-bold text-white mb-6 font-figtree leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              Full-Stack Developer & Software Engineer
+              I build full-stack apps that don’t break and actually scale.
             </motion.h1>
 
             {/* Subtitle */}
             <motion.p
-              className="text-lg text-[#aaaaaa] mb-8 max-w-lg leading-relaxed"
+              className=" text-[#aaaaaa] mb-8 max-w-lg leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              Passionate about building scalable applications and solving
-              complex technical challenges. Experienced in modern technologies
-              and frameworks with a focus on clean, efficient code.
+              I design and build fast, scalable, and reliable web applications
+              from scratch. From backend logic to pixel-perfect UIs, I bring
+              ideas to life with modern tech and a no-BS attitude toward clean
+              code.
             </motion.p>
+
+            {/* Available for Work Badge */}
+            <motion.div
+              className="mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
+            >
+              <span className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 text-green-400 px-3 py-1.5 rounded-full text-sm font-medium">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                Available for work
+              </span>
+            </motion.div>
 
             {/* Action Buttons */}
             <motion.div
@@ -55,10 +69,14 @@ const Hero = () => {
             >
               <motion.a
                 href="#contact"
-                className="bg-[#1f1f1f] text-white px-8 py-3 rounded-lg font-medium hover:bg-[#2a2a2a] transition-all duration-200 text-center"
+                className="bg-[#1f1f1f] text-sm text-white px-8 py-3 rounded-lg font-medium  text-center"
                 whileHover={{
                   scale: 1.05,
                   boxShadow: "0 0 20px rgba(255, 255, 255, 0.1)",
+                }}
+                transition={{
+                  duration: 0.2,
+                  ease: "easeInOut",
                 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -66,10 +84,14 @@ const Hero = () => {
               </motion.a>
 
               <motion.a
-                href="#portfolio"
-                className="border border-[#333] text-white px-8 py-3 rounded-lg font-medium hover:bg-[#1a1a1a] transition-all duration-200 text-center"
+                href="#projects"
+                className="border border-[#333] text-sm text-white px-8 py-3 rounded-lg font-medium hover:bg-[#1a1a1a] transition-all duration-200 text-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                transition={{
+                  duration: 0.2,
+                  ease: "easeInOut",
+                }}
               >
                 View projects
               </motion.a>
@@ -91,7 +113,7 @@ const Hero = () => {
                 <div className="absolute inset-0 opacity-10">
                   <div className="grid grid-cols-12 grid-rows-12 h-full w-full">
                     {Array.from({ length: 144 }).map((_, i) => (
-                      <div key={i} className="border border-[#333]"></div>
+                      <div key={i} className="border border-[#484646]"></div>
                     ))}
                   </div>
                 </div>

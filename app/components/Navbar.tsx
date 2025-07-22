@@ -2,9 +2,38 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
+// Custom hook to detect large screens (>1080px)
+const useMediaQuery = (query: string) => {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    if (media.matches !== matches) {
+      setMatches(media.matches);
+    }
+    const listener = () => setMatches(media.matches);
+    window.addEventListener("resize", listener);
+    return () => window.removeEventListener("resize", listener);
+  }, [matches, query]);
+
+  return matches;
+};
+
 const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const isLg = useMediaQuery("(min-width: 1080px)");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const navItems = [
     { label: "Projects", href: "#projects" },
     { label: "Skills", href: "#skils" },
@@ -12,27 +41,47 @@ const Navbar = () => {
   ];
 
   return (
-    <motion.nav
-      className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm"
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
+    <motion.div
+      initial={false}
+      animate={{
+        width: isLg ? (scrolled ? "50%" : "80%") : scrolled ? "80%" : "100%",
+      }}
+      transition={{ duration: 0.8, ease: [0.65, 0, 0.35, 1] }}
+      className={`fixed ${
+        scrolled ? "top-2" : "top-0"
+      } left-1/2 transform -translate-x-1/2 z-50 ${
+        scrolled
+          ? "bg-[#121212] shadow-md rounded-xl px-6"
+          : "bg-transparent backdrop-blur-sm px-4 sm:px-6 lg:px-8"
+      }`}
+      layout
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className={`${scrolled ? "" : "max-w-7xl mx-auto"}`}>
         <div className="flex items-center justify-between h-16">
           {/* Logo and Name */}
           <div className="flex items-center space-x-3">
-            <Avatar>
+            <Avatar className="w-8 h-8 flex-shrink-0">
               <AvatarImage src="/pfp.jpeg" />
               <AvatarFallback>GJ</AvatarFallback>
             </Avatar>
-            <span className="text-white font-figtree font-semibold text-xl">
+
+            {/* Name - always visible, no animation */}
+            <span className="text-white font-figtree font-semibold text-xl tracking-tight">
               Garvit Jain
             </span>
           </div>
 
-          {/* Navigation Items */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Navigation Items - simple transition when scrolled */}
+          <motion.div
+            className="hidden md:flex items-center space-x-8"
+            initial={false}
+            animate={{
+              opacity: scrolled ? 0 : 1,
+              scale: scrolled ? 0.9 : 1,
+              pointerEvents: scrolled ? "none" : "auto",
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
             {navItems.map((item) => (
               <a
                 key={item.label}
@@ -42,11 +91,15 @@ const Navbar = () => {
                 {item.label}
               </a>
             ))}
+          </motion.div>
 
-            {/* Contact Me Button */}
+          {/* Contact Me Button - always visible */}
+          <div className="flex items-center gap-2 flex-shrink-0">
             <motion.a
               href="#contact"
-              className="bg-[#1f1f1f] text-white px-6 py-2 text-sm rounded-lg hover:bg-[#2a2a2a] transition-all duration-200"
+              className={`bg-[#1f1f1f] text-white text-sm rounded-lg hover:bg-[#2a2a2a] transition-all duration-200 font-semibold whitespace-nowrap ${
+                scrolled ? "px-4 py-1.5" : "px-6 py-2"
+              }`}
               whileHover={{
                 scale: 1.05,
                 boxShadow: "0 0 20px rgba(255, 255, 255, 0.1)",
@@ -56,28 +109,9 @@ const Navbar = () => {
               Contact me
             </motion.a>
           </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button className="text-white p-2">
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
-          </div>
         </div>
       </div>
-    </motion.nav>
+    </motion.div>
   );
 };
 

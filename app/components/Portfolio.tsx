@@ -120,54 +120,7 @@ const Portfolio = () => {
             >
               {/* Project Thumbnail */}
               <div className="h-48 relative overflow-hidden">
-                {/* Sunburst Pattern */}
-                <div className="absolute inset-0">
-                  <svg
-                    width="100%"
-                    height="100%"
-                    viewBox="0 0 400 200"
-                    className="w-full h-full"
-                  >
-                    {/* Sunburst rays */}
-                    {Array.from({ length: 20 }).map((_, i) => {
-                      const angle = i * 18 - 90; // 18 degrees per ray, start from top
-                      const colorClass =
-                        project.thumbnailStyle === "sunburst-blue"
-                          ? "#3b82f6"
-                          : project.thumbnailStyle === "sunburst-green"
-                          ? "#10b981"
-                          : "#f97316";
-                      const opacity = 0.8 - (i % 3) * 0.2; // Varying opacity for depth
-                      return (
-                        <path
-                          key={i}
-                          d={`M200,100 L${
-                            200 + Math.cos((angle * Math.PI) / 180) * 300
-                          },${100 + Math.sin((angle * Math.PI) / 180) * 300} L${
-                            200 + Math.cos(((angle + 9) * Math.PI) / 180) * 300
-                          },${
-                            100 + Math.sin(((angle + 9) * Math.PI) / 180) * 300
-                          } Z`}
-                          fill={colorClass}
-                          opacity={opacity}
-                        />
-                      );
-                    })}
-                    {/* Center gradient overlay */}
-                    <circle
-                      cx="200"
-                      cy="100"
-                      r="80"
-                      fill="url(#centerGradient)"
-                    />
-                    <defs>
-                      <radialGradient id="centerGradient">
-                        <stop offset="0%" stopColor="rgba(0,0,0,0.1)" />
-                        <stop offset="100%" stopColor="rgba(0,0,0,0.4)" />
-                      </radialGradient>
-                    </defs>
-                  </svg>
-                </div>
+                
 
                 {/* Dark overlay */}
                 <div className="absolute inset-0 bg-black bg-opacity-20" />
